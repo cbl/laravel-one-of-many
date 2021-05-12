@@ -19,7 +19,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "itsgoingd/clockwork": "^5.0",
-        "laravel/framework": "dev-one_of_many-join",
+        "laravel/framework": "^8.0",
         "laravel/tinker": "^2.5"
     },
     "require-dev": {
@@ -44,6 +44,16 @@
         }
     },
     "scripts": {
+        "setup-subselect": [
+            "git checkout master",
+            "composer install",
+            "cd vendor/laravel && rm -rf framework && git clone --single-branch --branch one_of_many https://github.com/cbl/framework"
+        ],
+        "setup-join": [
+            "git checkout join",
+            "composer install",
+            "cd vendor/laravel && rm -rf framework && git clone --single-branch --branch one_of_many-join https://github.com/cbl/framework"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
