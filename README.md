@@ -2,6 +2,11 @@
 
 This repository contains examples for [laravel/framework#37252](https://github.com/laravel/framework/pull/37252). The [laravel-debugbar](https://github.com/barryvdh/laravel-debugbar) may be used to inspect queries and eager loaded models.
 
+Relevant files:
+
+-   `app/Models/...`
+-   `app/Http/Controllers/TestController`
+
 ## Setup
 
 1. Preparing
