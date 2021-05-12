@@ -4,8 +4,23 @@ This repository contains examples for [laravel/framework#37252](https://github.c
 
 ## Setup
 
+1. Preparing
+
 ```shell
 composer install
 cp .env.example .env
 php artisan key:generate
+```
+
+2. Migrating & Seeding
+
+```shell
+php artisan migrate:fresh --seed
+```
+
+3. Checkout `subselect` or `join` approach
+
+```shell
+composer setup-subselect
+composer setup-join
 ```
