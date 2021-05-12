@@ -11,8 +11,8 @@ class TestController
     public function __invoke()
     {
         $this->userLoginExample();
-        //$this->userStateExample();
-        //$this->productPriceExample();
+        $this->userStateExample();
+        $this->productPriceExample();
 
         return view('welcome');
     }
@@ -40,10 +40,6 @@ class TestController
     public function productPriceExample()
     {
         // The `price` relation is last published price for the product.
-
-        // This relation one requires sql_mode 'ONLY_FULL_GROUP_BY' to be
-        // disabled. This configuration may be moved to a migration.
-        DB::statement("SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY,',''))");
 
         Product::with('price')->get();
     }

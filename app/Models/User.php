@@ -26,9 +26,7 @@ class User extends Authenticatable
 
     public function latest_login(): HasOne
     {
-        return $this->hasOne(Login::class)->ofMany(function ($query) {
-            $query->selectRaw('MAX(id) as id');
-        });
+        return $this->hasOne(Login::class)->ofMany()->orderByDesc('id');
     }
 
     public function states(): HasMany
@@ -38,8 +36,6 @@ class User extends Authenticatable
 
     public function current_state(): HasOne
     {
-        return $this->hasOne(State::class)->ofMany(function ($query) {
-            $query->selectRaw('MAX(id) as id');
-        });
+        return $this->hasOne(State::class)->ofMany()->orderByDesc('id');
     }
 }

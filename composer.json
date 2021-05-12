@@ -38,6 +38,10 @@
         }
     },
     "scripts": {
+        "setup": [
+            "composer install",
+            "cd vendor/laravel && rm -rf framework && git clone --single-branch --branch one_of_many https://github.com/cbl/framework"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
