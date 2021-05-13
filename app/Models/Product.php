@@ -23,10 +23,11 @@ class Product extends Model
      */
     public function price(): HasOne
     {
-        return $this->hasOne(Price::class)->ofMany(function ($query) {
-            $query
-                ->selectRaw('id, MAX(publish_at)')
-                ->where('publish_at', '<', now());
+        return $this->hasOne(Price::class)->ofMany([
+            'publish_at' => 'MAX',
+            'id'         => 'MAX'
+        ], function ($q) {
+            $q->where('publish_at', '<', now());
         });
     }
 }

@@ -10,9 +10,9 @@ class TestController
 {
     public function __invoke()
     {
-        $this->userLoginExample();
-        //$this->userStateExample();
-        //$this->productPriceExample();
+        // $this->userLoginExample();
+        // $this->userStateExample();
+        $this->productPriceExample();
 
         return view('welcome');
     }
